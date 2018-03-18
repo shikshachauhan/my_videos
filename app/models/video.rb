@@ -4,4 +4,7 @@ class Video < ApplicationRecord
   mount_uploader :thumbnail, ThumbnailUploader
 
   scope :public_videos, -> { where(private: false) }
+
+  validates :title, :thumbnail, :video, presence: true
+
 end

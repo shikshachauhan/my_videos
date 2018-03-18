@@ -16,3 +16,8 @@
 
 //= require devise_bootstrap_views
 //= require bootstrap.min.css
+.container
+{
+   display: table;
+   margin: 0 auto;
+}
