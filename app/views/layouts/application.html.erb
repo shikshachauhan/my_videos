@@ -28,7 +28,7 @@
               <button id="btnGroupDrop4" type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
               <div class="dropdown-menu" aria-labelledby="btnGroupDrop4">
                 <% if current_user %>
-                  <a class="dropdown-item" href="#">My Videos</a>
+                  <a class="dropdown-item" href='<%= videos_path %>'>My Videos</a>
                   <%= link_to("Logout", destroy_user_session_path, :method => :delete, class: "dropdown-item") %>
                 <% else %>
                   <a class="dropdown-item" href='<%= new_user_session_path %>'>Sign in</a>

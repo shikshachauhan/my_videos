@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Videos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Thumbnail</th>
+      <th>Private</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @videos.each do |video| %>
+      <tr class="table-secondary">
+        <td><%= video.title %></td>
+        <td><a href='<%= video.video %>' target="_blank"><%= image_tag video.thumbnail, height: '100px', width: '170px' %></a></td>
+        <td><%= video.private %></td>
+        <td><%= link_to 'Show', video %></td>
+        <td><%= link_to 'Edit', edit_video_path(video) %></td>
+        <td><%= link_to 'Destroy', video, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= paginate @videos %>
+
+<%= link_to 'New Video', new_video_path, class: 'card-link' %>

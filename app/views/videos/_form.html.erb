@@ -1,0 +1,45 @@
+<%= form_with(model: video, local: true, multipart: true) do |form| %>
+  <% if video.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(video.errors.count, "error") %> prohibited this video from being saved:</h2>
+
+      <ul>
+      <% video.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <div class="form-group">
+    <%= form.label :title %>
+    <%= form.text_field :title, id: :video_title, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= form.label :description %>
+    <%= form.text_area :description, id: :video_description, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :video %>
+    <%= form.file_field :video, id: :video_video, class: "form-control-file" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :thumbnail %>
+    <%= form.file_field :thumbnail, id: :video_thumbnail, class: "form-control-file" %>
+    <% if form.object.thumbnail.present? %>
+      <a href='<%= @video.video %>' target="_blank"><%= image_tag @video.thumbnail, height: '100px', width: '170px' %></a>
+    <% end %>
+  </div>
+
+  <div class="form-check">
+    <%= form.check_box :private, id: :video_private, class: 'form-check-input' %>
+    <%= form.label :private, class: "form-check-label" %>
+  </div>
+<br/>
+  <div class="actions form-group">
+    <%= form.submit class: "btn btn-primary" %>
+  </div>
+<% end %>

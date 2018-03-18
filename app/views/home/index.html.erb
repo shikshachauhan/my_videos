@@ -1,0 +1,10 @@
+<% @videos.each do |video| %>
+  <div>
+    <strong><%= video.title %></strong>
+    <p>
+      <a href='<%= video.video %>' target="_blank"><%= image_tag video.thumbnail, height: '350px', width: '500px' %></a>
+    </p>
+    <%= video.description %>
+  </div>
+
+<% end %>
