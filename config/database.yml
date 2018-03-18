@@ -20,11 +20,9 @@ test:
         socket: /var/run/mysqld/mysqld.sock
 
 production:
-        adapter: mysql2
-        encoding: utf8
-        reconnect: false
-        database: my_videos_production
-        pool: 100
-        username: root
-        password: l
-        socket: /var/run/mysqld/mysqld.sock
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  database: my_videos_production
+  username: my_videos
+  password: <%= ENV['MYAPP_DATABASE_PASSWORD'] %>

@@ -1,3 +1,5 @@
+ruby '2.3.4'
+
 source 'https://rubygems.org'
 
 git_source(:github) do |repo_name|
@@ -58,3 +60,5 @@ gem 'devise-bootstrap-views', '>= 0.0.11'
 gem 'carrierwave', '~> 1.0'
 
 gem 'kaminari', '>= 1.1.1'
+
+gem 'pg'
