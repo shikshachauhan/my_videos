@@ -57,8 +57,10 @@ gem 'devise', '>=4.4.3'
 
 gem 'devise-bootstrap-views', '>= 0.0.11'
 
-gem 'carrierwave', '~> 1.0'
 
+gem "paperclip", "~> 6.0.0"
+
+gem 'paperclip-av-transcoder'
 gem 'kaminari', '>= 1.1.1'
 
 gem 'pg'
