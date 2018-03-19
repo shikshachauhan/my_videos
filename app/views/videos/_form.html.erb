@@ -24,11 +24,14 @@
   <div class="form-group">
     <%= form.label :video %>
     <%= form.file_field :video, id: :video_video, class: "form-control-file" %>
+    only mp4 format is supported. Should be less than 10 MB
   </div>
 
   <div class="form-group">
     <%= form.label :thumbnail %>
     <%= form.file_field :thumbnail, id: :video_thumbnail, class: "form-control-file" %>
+    only jpg, jpeg, gif and png format is supported. Should be less than 1 MB
+
     <% if form.object.thumbnail.present? %>
       <a href='<%= @video.video %>' target="_blank"><%= image_tag @video.thumbnail, height: '100px', width: '170px' %></a>
     <% end %>

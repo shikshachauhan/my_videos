@@ -1,17 +1,21 @@
-<% @videos.each do |video| %>
-  <div class="progress">
-    <div class="progress-bar progress-bar-striped bg-danger" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-  </div>
-  <br/>
-  <br/>
-  <div>
-    <strong class="alert alert-dismissible alert-info"><%= video.title %></strong>
-    <p class="alert alert-dismissible alert-secondary">
-      <a href='<%= video.video %>' target="_blank"><%= image_tag video.thumbnail, height: '150px', width: '200px' %></a>
-    </p>
-    <p><%= video.description %></p>
-  </div>
+<div class='video-container'>
+  <% @videos.each_with_index do |video, i| %>
+    <% if i != 0%>
+      <div class="progress">
+        <div class="progress-bar progress-bar-striped bg-danger" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+    <% end %>
+    <br/>
+    <br/>
+    <div>
+      <strong class="alert alert-dismissible alert-info"><%= video.title %></strong>
+      <p class="alert alert-dismissible alert-secondary">
+        <a href='<%= video.video %>' target="_blank"><%= image_tag video.thumbnail, height: '150px', width: '200px' %></a>
+      </p>
+      <p><%= video.description %></p>
+    </div>
 
-<% end %>
+  <% end %>
+</div>
 
 <%= paginate @videos %>
